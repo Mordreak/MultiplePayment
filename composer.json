@@ -1,0 +1,19 @@
+{
+    "name": "thewit/multiplepayment",
+    "description": "Multiple Payment module by Thewit",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "proprietary"
+    ],
+    "require": {
+        "php": "~7.2.0||~7.3.0||~7.4",
+        "magento/framework": "~100.0.4"
+    },
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "Thewit\\MultiplePayment\\": ""
+        }
+    }
+}

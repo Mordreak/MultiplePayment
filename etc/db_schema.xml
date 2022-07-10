@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="multiplepayment_payment" resource="default" engine="innodb">
+        <column xsi:type="int" name="id" nullable="false" unsigned="true" identity="true" comment="ID"/>
+        <column xsi:type="int" name="order_id" nullable="true" unsigned="true" comment="Order ID"/>
+        <column xsi:type="date" name="date" nullable="false" comment="Date"/>
+        <column xsi:type="varchar" name="method" length="255" nullable="false" default="Cash" comment="Method"/>
+        <column xsi:type="decimal" name="amount" scale="4" precision="20" unsigned="false" nullable="true"
+                comment="Amount"/>
+        <column xsi:type="boolean" name="is_money_back" nullable="false" default="0" comment="Is Money Back"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign"
+                    referenceId="MULTIPLEPAYMENT_PAYMENT_ORDER_ID_SALES_ORDER_ENTITY_ID"
+                    column="order_id" table="multiplepayment_payment" referenceTable="sales_order"
+                    referenceColumn="entity_id" onDelete="SET NULL"/>
+    </table>
+</schema>

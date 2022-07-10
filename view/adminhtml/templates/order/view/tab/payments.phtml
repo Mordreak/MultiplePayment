@@ -1,0 +1,49 @@
+<?php
+/**
+ * @var $block Horace\Salescstm\Block\Adminhtml\Order\View\Tab\Payments
+ */
+$order = $block->getOrder();
+$payments = $block->getPayments();
+?>
+
+<section class="admin__page-section order-view-account-information">
+    <div class="admin__page-section-title">
+        <span class="title">MultiplePayment</span>
+    </div>
+    <div class="admin__page-section-content">
+        <div class="fieldset-wrapper-title">
+            <span class="title"><?= __('Statut du paiement :'); ?></span>
+        </div>
+        <table class="admin__table-secondary">
+            <tbody>
+                <tr>
+                    <th><?= __('Statut du paiement :') ?></th>
+                    <td><?= __($this->getStatus()); ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Total payé :') ?></th>
+                    <td><?= $block->getTotalPaid(); ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Reste à payer :'); ?></th>
+                    <td><?= $block->getTotalDue(); ?></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="admin__page-section-content">
+        <div class="fieldset-wrapper-title">
+            <span class="title"><?= __('Payments :'); ?></span>
+        </div>
+        <table class="admin__table-secondary">
+            <tbody>
+            <?php foreach ($payments as $payment) { ?>
+                <tr>
+                    <th><?= $payment->getMethod(); ?></th>
+                    <td><?= $block->formatPrice($payment->getAmount()); ?></td>
+                </tr>
+            <?php } ?>
+            </tbody>
+        </table>
+    </div>
+</section>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Thewit\MultiplePayment\Api\PaymentRepositoryInterface" type="Thewit\MultiplePayment\Model\PaymentRepository"/>
+    <preference for="Thewit\MultiplePayment\Api\Data\PaymentInterface" type="Thewit\MultiplePayment\Model\Payment"/>
+    <preference for="Thewit\MultiplePayment\Api\Data\PaymentSearchResultInterface" type="Magento\Framework\Api\PaymentResults"/>
+</config>
